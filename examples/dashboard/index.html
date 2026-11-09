@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PVC Component - Dashboard</title>
+    <link rel="stylesheet" href="../root.css">
+    <link rel="stylesheet" href="../../src/dashboard/style.css">
+    <link rel="stylesheet" href="../../src/dashboard/card/style.css">
+    <link rel="stylesheet" href="../../src/dashboard/card/detailCard01/style.css">
+    <link rel="stylesheet" href="../../src/dashboard/card/numberCard01/style.css">
+    <link rel="stylesheet" href="../../src/dashboard/card/numberCard02/style.css">
+    <link rel="stylesheet" href="../../src/dashboard/desk/style.css">
+    <link rel="stylesheet" href="../../src/dashboard/desk/deskCard_01/style.css">
+    <link rel="stylesheet" href="../../src/dashboard/table/style.css">
+    <link rel="stylesheet" href="../../src/dashboard/table/table_01/style.css">
+    <style>
+        body { margin: 0; padding: 30px; background: #f5f6f8; color: #212529; font-family: Arial, sans-serif; }
+        main { max-width: 1000px; margin: auto; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+        .card, .desk__card_01 { padding: 18px; border-radius: 10px; background: white; box-shadow: 0 4px 16px #0001; }
+        .number-card-01__caption, .number-card-02__caption { font-weight: 700; }
+        .number-card-01__sub-caption, .number-card-02__sub-caption { margin-top: 6px; color: #6c8793; font-size: 13px; }
+        .number-card-01__number, .number-card-02__number { margin-top: 18px; font-size: 28px; font-weight: 700; }
+        .desk__card_01__action-bar { margin-top: 14px; }
+        table { margin-top: 12px; }
+        @media (max-width: 600px) { body { padding: 16px; } }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Dashboard</h1>
+        <p>Bản xem trước HTML/CSS cho card, desk card và table. API card được export; Desk và Table hiện chưa được export.</p>
+        <h2>Cards</h2>
+        <section class="cards">
+            <article class="card">
+                <div class="number-card-01__caption">Đơn hàng</div>
+                <div class="number-card-01__sub-caption">Trong tháng này</div>
+                <div class="number-card-01__content"><div class="number-card-01__number">128</div></div>
+            </article>
+            <article class="card">
+                <div class="number-card-02__caption">Doanh thu</div>
+                <div class="number-card-02__sub-caption">So với tháng trước</div>
+                <div class="number-card-02__content"><div class="number-card-02__number">24.500.000 ₫</div></div>
+            </article>
+            <article class="card">
+                <article class="detail-card-01">
+                    <h3 class="caption">Tổng quan</h3>
+                    <p class="sub-caption">Cập nhật hôm nay</p>
+                    <div class="content"><p>Đang hoạt động ổn định.</p><p>Có 3 tác vụ cần xem.</p></div>
+                </article>
+            </article>
+        </section>
+        <h2>Desk card</h2>
+        <article class="desk__card_01">
+            <div class="desk__card_01__caption">Tác vụ cần xử lý</div>
+            <div class="desk__card_01__sub-caption">Cập nhật lúc 09:30</div>
+            <div class="desk__card_01__detail">Có 3 yêu cầu đang chờ phê duyệt.</div>
+            <div class="desk__card_01__action-bar"><button type="button">Mở danh sách</button></div>
+        </article>
+        <h2>Table</h2>
+        <table class="table_01">
+            <thead class="table_01__header"><tr><th>Mã</th><th>Khách hàng</th><th>Trạng thái</th></tr></thead>
+            <tbody>
+                <tr class="table_01__row"><td>DH-001</td><td>Nguyễn An</td><td>Đã xác nhận</td></tr>
+                <tr class="table_01__row"><td>DH-002</td><td>Trần Bình</td><td>Đang xử lý</td></tr>
+            </tbody>
+        </table>
+        <p><a href="../index.html">Quay lại danh sách ví dụ</a></p>
+    </main>
+</body>
+</html>

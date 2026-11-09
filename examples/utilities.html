@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PVC Component - Utilities</title>
+    <link rel="stylesheet" href="root.css">
+    <style>
+        body { margin: 0; padding: 30px; background: #f5f6f8; color: #212529; font-family: Arial, sans-serif; }
+        main { max-width: 760px; margin: auto; }
+        section { margin: 18px 0; padding: 24px; border-radius: 12px; background: white; }
+        .div-che { position: fixed; inset: 0; z-index: 100; display: none; background: rgba(0,0,0,.3); place-items: center; }
+        .div-che.is-visible { display: grid; }
+        .overlay-card { padding: 24px; border-radius: 12px; background: white; }
+        .chat { min-height: 70px; padding: 12px; border-radius: 8px; background: #eef7f8; }
+        button { padding: 9px 14px; border: 0; border-radius: 8px; background: #167a8a; color: white; cursor: pointer; font: inherit; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Tiện ích</h1>
+        <p>Bản xem trước độc lập cho màn che và vùng hiển thị chat line. <code>PVCComponent.divChe</code> được export; <code>chat_line</code> chưa được export.</p>
+        <section>
+            <h2>Màn che</h2>
+            <button type="button" id="show-overlay">Hiện màn che</button>
+        </section>
+        <section>
+            <h2>Chat line</h2>
+            <div id="chat-message" class="chat" aria-live="polite">Nhấn nút để chạy chuỗi hội thoại.</div>
+            <p><button type="button" id="start-chat">Chạy chat line</button></p>
+        </section>
+        <p><a href="index.html">Quay lại danh sách ví dụ</a></p>
+    </main>
+    <div id="overlay-preview" class="div-che" role="presentation">
+        <div class="overlay-card" role="dialog" aria-modal="true">
+            <p>Đây là màn che toàn trang.</p>
+            <button type="button" id="hide-overlay">Đóng</button>
+        </div>
+    </div>
+    <script>
+        const overlay = document.querySelector('#overlay-preview');
+        document.querySelector('#show-overlay').addEventListener('click', () => overlay.classList.add('is-visible'));
+        document.querySelector('#hide-overlay').addEventListener('click', () => overlay.classList.remove('is-visible'));
+        overlay.addEventListener('click', event => {
+            if (event.target === overlay) overlay.classList.remove('is-visible');
+        });
+        document.querySelector('#start-chat').addEventListener('click', () => {
+            const messages = ['Xin chào!', 'Bạn cần hỗ trợ gì?', 'Tôi sẵn sàng trợ giúp.'];
+            const target = document.querySelector('#chat-message');
+            target.textContent = '';
+            messages.forEach((message, index) => {
+                window.setTimeout(() => { target.textContent = message; }, index * 1200);
+            });
+        });
+    </script>
+</body>
+</html>

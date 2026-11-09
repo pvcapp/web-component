@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PVC Component - Loading</title>
+    <link rel="stylesheet" href="../root.css">
+    <link rel="stylesheet" href="../../src/loading/loadingBar/loadingBar01/style.css">
+    <link rel="stylesheet" href="../../src/loading/loadingScreen/loadingScreen01/style.css">
+    <link rel="stylesheet" href="../../src/loading/loadingScreen/loadingScreen02/style.css">
+    <link rel="stylesheet" href="../../src/loading/loadingText/loadingText01/style.css">
+    <link rel="stylesheet" href="../../src/loading/loadingText/loadingText02/style.css">
+    <style>
+        body { margin: 0; padding: 30px; background: #f5f6f8; color: #212529; font-family: Arial, sans-serif; }
+        main { max-width: 800px; margin: auto; }
+        section { margin: 18px 0; padding: 24px; border-radius: 12px; background: white; }
+        .loading-bar-01__container { max-width: 500px; }
+        .loading-screen-01 { position: relative; inset: auto; min-height: 100px; background: #f4fbfc; }
+        .screen-preview { position: relative; min-height: 300px; overflow: hidden; border-radius: 10px; }
+        button { padding: 9px 14px; border: 0; border-radius: 8px; background: #167a8a; color: white; cursor: pointer; font: inherit; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Loading</h1>
+        <p>Bản xem trước HTML/CSS độc lập cho các biến thể Loading được export trong bundle.</p>
+        <section>
+            <h2>Loading bar</h2>
+            <div class="loading-bar-01__container"><div class="loading-bar-01"></div></div>
+        </section>
+        <section>
+            <h2>Loading text</h2>
+            <div class="loading-text-01"><span class="loading-text-01__spinner"></span><span>Đang xử lý</span></div>
+            <div class="loading-text-02"><span class="loading-text-02__spinner"></span><span>Đang tải dữ liệu</span></div>
+        </section>
+        <section>
+            <h2>Loading screen 01</h2>
+            <div class="loading-screen-01"><div class="loading-bar-01__container"><div class="loading-bar-01"></div></div></div>
+        </section>
+        <section>
+            <h2>Loading screen 02</h2>
+            <div class="screen-preview">
+                <div class="loading-screen-02" style="position:absolute;inset:0;z-index:0">
+                    <div class="loading-screen-02__content">
+                        <div class="loading-screen-02__spinner"><div class="loading-screen-02__house"></div></div>
+                        <h2 class="loading-screen-02__title">Vui lòng chờ</h2>
+                        <p class="loading-screen-02__message">Dữ liệu của bạn đang được tải lên</p>
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="toggle-screen" aria-pressed="false">Hiện toàn màn hình</button>
+        </section>
+        <p><a href="../index.html">Quay lại danh sách ví dụ</a></p>
+    </main>
+    <script>
+        const screenButton = document.querySelector('#toggle-screen');
+        screenButton.addEventListener('click', () => {
+            let overlay = document.querySelector('#loading-overlay');
+            if (overlay) {
+                overlay.remove();
+                screenButton.textContent = 'Hiện toàn màn hình';
+                screenButton.setAttribute('aria-pressed', 'false');
+                return;
+            }
+            overlay = document.createElement('div');
+            overlay.id = 'loading-overlay';
+            overlay.className = 'loading-screen-02';
+            overlay.innerHTML = '<div class="loading-screen-02__content"><div class="loading-screen-02__spinner"><div class="loading-screen-02__house"></div></div><h2 class="loading-screen-02__title">Vui lòng chờ</h2><p class="loading-screen-02__message">Đang tải dữ liệu mẫu</p></div>';
+            document.body.appendChild(overlay);
+            screenButton.textContent = 'Ẩn màn hình tải';
+            screenButton.setAttribute('aria-pressed', 'true');
+        });
+    </script>
+</body>
+</html>

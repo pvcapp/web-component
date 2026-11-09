@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PVC Component - Form</title>
+    <link rel="stylesheet" href="../root.css">
+    <link rel="stylesheet" href="../../src/form/form01/style.css">
+    <link rel="stylesheet" href="../../src/form/field/field01/style.css">
+    <style>
+        body { margin: 0; padding: 30px; background: #f5f6f8; color: #212529; font-family: Arial, sans-serif; }
+        main { max-width: 900px; margin: auto; }
+        section { margin: 18px 0; padding: 24px; border-radius: 12px; background: white; }
+        .field-01 { margin: 12px 0; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Form, Form Field &amp; Date Picker</h1>
+        <p>Form Field được minh họa bằng HTML/CSS; lịch ngày sử dụng API công khai <code>PVCComponent.datePicker</code>.</p>
+        <section>
+            <h2>Field cơ bản</h2>
+            <div class="form__grid">
+                <div class="field-01">
+                    <label for="full-name">Họ và tên</label>
+                    <input id="full-name" type="text" placeholder="Nhập họ và tên" value="Nguyễn An" required>
+                </div>
+                <div class="field-01">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="name@example.com">
+                </div>
+                <div class="field-01">
+                    <label for="birthday">Ngày sinh (dd/mm/yyyy)</label>
+                    <input id="birthday" type="text" placeholder="dd/mm/yyyy" value="08/11/2026">
+                </div>
+                <div class="field-01">
+                    <label for="role">Vai trò</label>
+                    <select id="role">
+                        <option value="">Chọn vai trò</option>
+                        <option value="admin">Quản trị viên</option>
+                        <option value="member">Thành viên</option>
+                    </select>
+                </div>
+                <div class="field-01">
+                    <label for="note">Ghi chú</label>
+                    <textarea id="note" placeholder="Nhập ghi chú"></textarea>
+                </div>
+            </div>
+        </section>
+        <p><a href="../index.html">Quay lại danh sách ví dụ</a></p>
+    </main>
+    <script src="../../dist/pvc-component.js"></script>
+    <script>
+        document.querySelector('#birthday').addEventListener('click', () => {
+            PVCComponent.datePicker.show('birthday', 'dd/mm/yyyy', 'Chọn ngày sinh');
+        });
+    </script>
+</body>
+</html>

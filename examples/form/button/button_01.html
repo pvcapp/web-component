@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PVC Component - Button 01</title>
+
+    <link rel="stylesheet" href="../../../examples/root.css">
+    <link rel="stylesheet" href="../../../dist/pvc-component.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f6f8;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .demo {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .demo-section {
+            background: white;
+            padding: 24px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+
+        .demo-list {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="demo">
+
+    <h1>Button 01</h1>
+    <p>Button cơ bản có icon và text.</p>
+
+    <section class="demo-section">
+        <h2>1. Button mặc định</h2>
+        <div id="demo1" class="demo-list"></div>
+    </section>
+
+    <section class="demo-section">
+        <h2>2. Button trắng trên nền màu</h2>
+        <div id="demo2" class="demo-list"></div>
+    </section>
+
+    <section class="demo-section">
+        <h2>3. Button chỉ có text</h2>
+        <div id="demo3" class="demo-list"></div>
+    </section>
+
+    <section class="demo-section">
+        <h2>4. Button có sự kiện click</h2>
+        <div id="demo4" class="demo-list"></div>
+        <p id="result">Chưa nhấn button.</p>
+    </section>
+
+    <section class="demo-section" id="only-icon">
+        <h2>5. Button chỉ có icon</h2>
+        <div id="demo5" class="demo-list"></div>
+    </section>
+
+</div>
+
+<script src="../../../dist/pvc-component.js"></script>
+
+<script>
+    // Demo 1
+    document.querySelector('#demo1').append(
+        PVCComponent.button({
+            type: 'button01',
+            iconSrc: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23075e70%22 d=%22M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z%22/%3E%3C/svg%3E',
+            text: 'Thêm mới'
+        })
+    );
+
+    // Demo 2
+    document.querySelector('#demo2').append(
+         PVCComponent.button({
+            type: 'button01',
+             iconSrc: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23075e70%22 d=%22M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z%22/%3E%3C/svg%3E',
+            text: 'Khách hàng mới',
+            onColor: true
+        })
+    );
+
+    // Demo 3
+    document.querySelector('#demo3').append(
+         PVCComponent.button({
+            type: 'button01',
+            text: 'Lưu'
+        })
+    );
+
+    // Demo 4
+    document.querySelector('#demo4').append(
+         PVCComponent.button({
+            type: 'button01',
+            text: 'Nhấn thử',
+            onclick: () => {
+                document.querySelector('#result').textContent =
+                    'Bạn vừa nhấn button!';
+                setTimeout(()=> document.querySelector('#result').textContent =
+                    'Hãy thử nhấn nút', 2000);
+            }
+        })
+    );
+
+    // Demo 5
+    document.querySelector('#demo5').append(
+        PVCComponent.button({
+            type: 'onlyIconButton01',
+            iconSrc: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23075e70%22 d=%22M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z%22/%3E%3C/svg%3E',
+            onclick: () => {
+                document.querySelector('#result').textContent = 'Bạn vừa nhấn nút icon!';
+            }
+        })
+    );
+</script>
+
+</body>
+</html>

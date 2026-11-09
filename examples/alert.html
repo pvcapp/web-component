@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PVC Component - Alert</title>
+    <link rel="stylesheet" href="root.css">
+    <link rel="stylesheet" href="../src/alert/style.css">
+    <style>
+        body { margin: 0; padding: 30px; background: #f5f6f8; color: #212529; font-family: Arial, sans-serif; }
+        main { max-width: 760px; margin: auto; }
+        .demo-panel { padding: 24px; border-radius: 12px; background: #fff; }
+        .actions { display: flex; gap: 10px;}
+        button { padding: 9px 16px; border: 1px solid #ccc; border-radius: 8px; background: white; cursor: pointer; font: inherit; }
+        #alert-preview { display: grid; }
+        #alert-preview[hidden] { display: none; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Alert</h1>
+        <p>Markup xem trước độc lập cho giao diện Alert. API <code>PVCComponent.canhBao</code> được export trong bundle.</p>
+        <section class="demo-panel">
+            <h2>Mở hộp thoại xác nhận</h2>
+            <div class="actions">
+                <button type="button" id="show-alert">Xem hộp thoại</button>
+                <a href="index.html">Danh sách ví dụ</a>
+            </div>
+        </section>
+    </main>
+    <div id="alert-preview" class="thong-bao-popup__container" hidden>
+        <div class="thong-bao-popup__div-noi-dung" role="dialog" aria-modal="true" aria-labelledby="alert-caption">
+            <div class="thong-bao-popup__div-noi-dung__caption">
+                <span aria-hidden="true">ⓘ</span>
+                <div id="alert-caption">Xác nhận</div>
+            </div>
+            <div class="thong-bao-popup__div-noi-dung__noi-dung-thong-bao">Bạn có muốn tiếp tục thao tác này?</div>
+            <div style="display:flex;justify-content:flex-end;gap:.7rem;padding:2px 8px 8px">
+                <button class="thong-bao-popup__button" type="button" data-close>OK</button>
+                <button class="thong-bao-popup__button" type="button" data-close>Bỏ qua</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const preview = document.querySelector('#alert-preview');
+        document.querySelector('#show-alert').addEventListener('click', () => { preview.hidden = false; });
+        preview.querySelectorAll('[data-close]').forEach(button => {
+            button.addEventListener('click', () => { preview.hidden = true; });
+        });
+        preview.addEventListener('click', event => {
+            if (event.target === preview) preview.hidden = true;
+        });
+    </script>
+</body>
+</html>
