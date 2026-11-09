@@ -11,7 +11,7 @@ PVCComponent.divChe({ id: 'page-overlay' });
 document.querySelector('#page-overlay').style.display = 'block';
 ```
 
-Ẩn màn che bằng cách đặt `display: none`. Hàm khởi tạo style thêm một thẻ `<style>` mỗi lần gọi, nên chỉ gọi một lần.
+Xem [tài liệu divChe](divChe/index.md) để biết đầy đủ tham số và cách sử dụng, hoặc mở [divChe demo](../../examples/divChe.html).
 
 ## Chat line
 
@@ -27,4 +27,4 @@ chat_line(
 
 Nếu bỏ `divId`, hàm gọi helper `toast(...)` toàn cục cho từng dòng. Khi có `divId`, phần tử đích phải tồn tại và helper `$` cần được cung cấp.
 
-Xem [Utilities demo](../../examples/utilities.html) để xem trước giao diện; trang demo dùng markup và JavaScript độc lập.
+Xem [Utilities demo](../../examples/utilities.html) để xem trước chat line; trang demo dùng markup và JavaScript độc lập.

@@ -12,7 +12,7 @@ Thư viện cung cấp các thành phần giao diện viết bằng JavaScript t
 | Dashboard | Card, desk card, table, layout helpers | [Dashboard](dashboard/index.md) | [Dashboard demo](../examples/dashboard/index.html) |
 | Loading | Loading bar, screen, text | [Loading](loading/index.md) | [Loading demo](../examples/loading/index.html) |
 | Toast | Thông báo ngắn | [Toast](toast/index.md) | [Toast demo](../examples/toast.html) |
-| Tiện ích | Màn che và chat line | [Tiện ích](utilities/index.md) | [Utilities demo](../examples/utilities.html) |
+| Tiện ích | Màn che và chat line | [Tiện ích](utilities/index.md), [divChe](utilities/divChe/index.md) | [divChe demo](../examples/divChe.html), [Utilities demo](../examples/utilities.html) |
 
 ## Phạm vi API hiện được export
 

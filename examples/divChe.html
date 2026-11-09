@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PVC Component - divChe</title>
+    <link rel="stylesheet" href="root.css">
+    <link rel="stylesheet" href="../dist/pvc-component.css">
+    <style>
+        body { margin: 0; padding: 30px; background: #f5f6f8; color: #212529; font-family: Arial, sans-serif; }
+        main { max-width: 760px; margin: auto; }
+        .panel { padding: 24px; border-radius: 12px; background: white; }
+        .overlay-content { position: absolute; top: 50%; left: 50%; width: min(420px, calc(100% - 32px)); padding: 24px; transform: translate(-50%, -50%); border-radius: 12px; background: white; box-shadow: 0 12px 35px #0003; }
+        button { padding: 9px 14px; border: 0; border-radius: 8px; background: #167a8a; color: white; cursor: pointer; font: inherit; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>divChe</h1>
+        <p>Ví dụ tạo overlay bằng <code>PVCComponent.divChe</code>, sau đó điều khiển hiển thị qua phần tử được gắn vào trang.</p>
+        <section class="panel">
+            <button type="button" id="show-overlay">Hiện màn che</button>
+            <p><a href="../docs/utilities/divChe/index.md">Xem tài liệu divChe</a></p>
+            <p><a href="index.html">Quay lại danh sách ví dụ</a></p>
+        </section>
+    </main>
+    <script src="../dist/pvc-component.js"></script>
+    <script>
+        PVCComponent.divChe({ id: 'demo-overlay', zIndex: 1000 });
+
+        const overlay = document.querySelector('#demo-overlay');
+        overlay.innerHTML = `
+            <section class="overlay-content" role="dialog" aria-modal="true" aria-labelledby="overlay-title">
+                <h2 id="overlay-title">Màn che toàn trang</h2>
+                <p>Đóng hộp thoại để ẩn overlay.</p>
+                <button type="button" id="hide-overlay">Đóng</button>
+            </section>
+        `;
+
+        document.querySelector('#show-overlay').addEventListener('click', () => {
+            overlay.style.display = 'block';
+        });
+        document.querySelector('#hide-overlay').addEventListener('click', () => {
+            overlay.style.display = 'none';
+        });
+        overlay.addEventListener('click', event => {
+            if (event.target === overlay) overlay.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
